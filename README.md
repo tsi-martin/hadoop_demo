@@ -100,5 +100,5 @@ CONTAINER ID        IMAGE               COMMAND             CREATED             
 ### Access container shell
 
 ```bash
-docker exec -ti hadoop_demo_hsn bash
+docker exec -ti hadoop_demo_hsn_1 bash
 
