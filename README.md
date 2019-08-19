@@ -28,6 +28,9 @@ If you are using Amazon EC2 already, you can launch an instance and install Dock
 1. Launch an instance with the Amazon Linux 2 AMI. 
 
 2. Connect to your instance. 
+```bash
+ssh -l ec2-user -i <local_path_to_your_AWS_keyfile>/<your_AWS_keyfile.pem> <Instance IP or Instance FQDN> 
+```
 
 3. Update the installed packages and package cache on your instance: 
 ```bash
