@@ -29,7 +29,7 @@ If you are using Amazon EC2 already, you can launch an instance and install Dock
 
 2. Connect to your instance. 
 ```bash
-ssh -l ec2-user -i <local_path_to_your_AWS_keyfile>/<your_AWS_keyfile.pem> <Amazoon Instance IP or Amazon Instance FQDN> 
+ssh -l ec2-user -i <local_path_to_your_AWS_keyfile>/<your_AWS_keyfile.pem> <Amazon Instance IP or FQDN> 
 ```
 
 3. Update the installed packages and package cache on your instance: 
@@ -42,19 +42,25 @@ sudo yum update -y
 sudo yum install docker
 ```
 
-5. Start the Docker service.
+5. Install docker compose
+```bash
+sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
+chmod +x /usr/local/bin/docker-compose
+```
+
+6. Start the Docker service.
 ```bash
 sudo service docker start
 ```
 
-6. Add the ec2-user to the docker group so you can execute Docker commands without using sudo. 
+7. Add the ec2-user to the docker group so you can execute Docker commands without using sudo. 
 ```bash
 sudo usermod -a -G docker ec2-user
 ```
 
-7. Log out and log back in again to pick up the new docker group permissions. You can accomplish this by closing your current SSH terminal window and reconnecting to your instance in a new one. Your new SSH session will have the appropriate docker group permissions. 
+8. Log out and log back in again to pick up the new docker group permissions. You can accomplish this by closing your current SSH terminal window and reconnecting to your instance in a new one. Your new SSH session will have the appropriate docker group permissions. 
 
-8. Verify that the ec2-user can run Docker commands without sudo. 
+9. Verify that the ec2-user can run Docker commands without sudo. 
 ```bash
 docker info
 ```
