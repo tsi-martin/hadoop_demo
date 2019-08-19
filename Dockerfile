@@ -41,7 +41,7 @@ RUN yum -y install \
     rsync
 
 # Clean Yum
-yum clean all
+RUN yum clean all
 
 # install supervisord
 RUN easy_install supervisor
