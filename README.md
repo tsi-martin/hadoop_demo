@@ -27,40 +27,42 @@ If you are using Amazon EC2 already, you can launch an instance and install Dock
 
 1. Launch an instance with the Amazon Linux 2 AMI. 
 
-2. Connect to your instance. 
+2. Ensure/Modify the Security Group settings to allow access from 0.0.0.0/0 to your Amazon EC2 instance on TCP port 15000 for browser-based zeppelin access.
+
+3. Connect to your instance. 
 ```bash
 ssh -l ec2-user -i <local_path_to_your_AWS_keyfile>/<your_AWS_keyfile.pem> <Amazon Instance IP or FQDN> 
 ```
 
-3. Update the installed packages and package cache on your instance: 
+4. Update the installed packages and package cache on your instance: 
 ```bash
 sudo yum update -y
 ```
 
-4. Install the most recent Docker Community Edition package.
+5. Install the most recent Docker Community Edition package.
 ```bash
 sudo yum install docker
 ```
 
-5. Install docker compose
+6. Install docker compose
 ```bash
 sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-compose-`uname -s`-`uname -m` -o /usr/local/bin/docker-compose
 sudo hmod +x /usr/local/bin/docker-compose
 ```
 
-6. Start the Docker service.
+7. Start the Docker service.
 ```bash
 sudo service docker start
 ```
 
-7. Add the ec2-user to the docker group so you can execute Docker commands without using sudo. 
+8. Add the ec2-user to the docker group so you can execute Docker commands without using sudo. 
 ```bash
 sudo usermod -a -G docker ec2-user
 ```
 
-8. Log out and log back in again to pick up the new docker group permissions. You can accomplish this by closing your current SSH terminal window and reconnecting to your instance in a new one (see step 2). Your new SSH session will have the appropriate docker group permissions. 
+9. Log out and log back in again to pick up the new docker group permissions. You can accomplish this by closing your current SSH terminal window and reconnecting to your instance in a new one (see step 2). Your new SSH session will have the appropriate docker group permissions. 
 
-9. Verify that the ec2-user can run Docker commands without sudo. 
+10. Verify that the ec2-user can run Docker commands without sudo. 
 ```bash
 docker info
 ```
