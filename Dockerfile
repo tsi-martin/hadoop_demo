@@ -22,6 +22,7 @@ RUN yum -y install \
     vim \
     unzip \
     net-tools \
+    epel-release \
     python-pip \
     python-matplotlib \
     R \
