@@ -17,6 +17,45 @@ State of the project :
 
 * Hadoop, yarn, spark, hive, zeppelin : running, not optimized. I'm interested by any feedback.
 
+
+Docker basics on Amazon ECS
+---------------------------
+
+### Prepare yout EC2 instance
+
+If you are using Amazon EC2 already, you can launch an instance and install Docker to get started. 
+
+1. Launch an instance with the Amazon Linux 2 AMI. 
+
+2. Connect to your instance. 
+
+3. Update the installed packages and package cache on your instance: 
+```bash
+sudo yum update -y
+```
+
+4. Install the most recent Docker Community Edition package.
+```bash
+sudo yum install docker
+```
+
+5. Start the Docker service.
+```bash
+sudo service docker start
+```
+
+6. Add the ec2-user to the docker group so you can execute Docker commands without using sudo. 
+```bash
+sudo usermod -a -G docker ec2-user
+```
+
+7. Log out and log back in again to pick up the new docker group permissions. You can accomplish this by closing your current SSH terminal window and reconnecting to your instance in a new one. Your new SSH session will have the appropriate docker group permissions. 
+
+8. Verify that the ec2-user can run Docker commands without sudo. 
+```bash
+docker info
+```
+
 Quickstart
 ----------
 
