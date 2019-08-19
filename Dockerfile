@@ -13,6 +13,12 @@ ENV SPARK_VERSION 2.3.3
 ENV HIVE_VERSION 2.3.5
 ENV HADOOP_VERSION 2.7.7
 
+# Install epel for R
+RUN yum -y install epel-release 
+
+# Update the image with the latest packages
+RUN yum update -y
+
 # install base
 RUN yum -y install \
     curl \
@@ -34,8 +40,8 @@ RUN yum -y install \
     python-setuptools \
     rsync
 
-# Update the image with the latest packages
-# RUN yum update -y; yum clean all
+# Clean Yum
+yum clean all
 
 # install supervisord
 RUN easy_install supervisor
