@@ -3,7 +3,9 @@ Docker for a single node hadoop installation
 
 This repository is used to create an hadoop single instance following the documentation on this page :
 http://hadoop.apache.org/docs/current/hadoop-project-dist/hadoop-common/SingleCluster.html and the doc
-of spark.
+of spark. This is a cloud-enabled docker image based on CentOS7, Spark and Zeppelin. For using the image, a docker enabled host (e.g. a VirtualBox, VMware oder Hyper-V virtual machine or AWS EC2 or OTC ECS) with at least 2 virtual CPU's/vCores, 4 GB memory and 16GB disk is recommended.
+
+This image is not suitable for productive use, but offers the possibility to test the combination of Apache Spark and Apache Zeppelin for different possibilities.
 
 Features :
 
