@@ -21,7 +21,7 @@ State of the project :
 Docker basics on Amazon ECS
 ---------------------------
 
-### Prepare yout EC2 instance
+### Prepare your Amazon EC2 instance
 
 If you are using Amazon EC2 already, you can launch an instance and install Docker to get started. 
 
@@ -29,7 +29,7 @@ If you are using Amazon EC2 already, you can launch an instance and install Dock
 
 2. Connect to your instance. 
 ```bash
-ssh -l ec2-user -i <local_path_to_your_AWS_keyfile>/<your_AWS_keyfile.pem> <Instance IP or Instance FQDN> 
+ssh -l ec2-user -i <local_path_to_your_AWS_keyfile>/<your_AWS_keyfile.pem> <Amazoon Instance IP or Amazon Instance FQDN> 
 ```
 
 3. Update the installed packages and package cache on your instance: 
