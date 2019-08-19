@@ -86,6 +86,7 @@ git clone https://github.com/tsi-martin/hadoop_demo.git
 ### create the container
 
 ```
+cd hadoop_demo
 docker-compose build
 docker-compose up -d
 ```
