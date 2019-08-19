@@ -22,6 +22,12 @@ RUN yum -y install \
     vim \
     unzip \
     net-tools \
+    python-pip \
+    python-matplotlib \
+    R \
+    R-devel \
+    libcurl-devel \
+    openssl-devel \
     openssh-server \
     openssh-clients \
     python-setuptools \
