@@ -52,19 +52,24 @@ sudo curl -L https://github.com/docker/compose/releases/download/1.24.1/docker-c
 sudo hmod +x /usr/local/bin/docker-compose
 ```
 
-7. Start the Docker service.
+7. Install git
+```bash
+sudo yum install git
+```
+
+8. Start the Docker service.
 ```bash
 sudo service docker start
 ```
 
-8. Add the ec2-user to the docker group so you can execute Docker commands without using sudo. 
+9. Add the ec2-user to the docker group so you can execute Docker commands without using sudo. 
 ```bash
 sudo usermod -a -G docker ec2-user
 ```
 
-9. Log out and log back in again to pick up the new docker group permissions. You can accomplish this by closing your current SSH terminal window and reconnecting to your instance in a new one (see step 2). Your new SSH session will have the appropriate docker group permissions. 
+10. Log out and log back in again to pick up the new docker group permissions. You can accomplish this by closing your current SSH terminal window and reconnecting to your instance in a new one (see step 2). Your new SSH session will have the appropriate docker group permissions. 
 
-10. Verify that the ec2-user can run Docker commands without sudo. 
+11. Verify that the ec2-user can run Docker commands without sudo. 
 ```bash
 docker info
 ```
