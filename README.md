@@ -85,7 +85,7 @@ docker-compose up -d
 
 ### Zeppelin notebook
 
-You can access to Zeppelin at http://localhost:15000
+You can access to Zeppelin at http://<ip/fqdn>:15000
 
 ### Check running container
 
