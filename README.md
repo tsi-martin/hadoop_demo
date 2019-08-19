@@ -33,7 +33,7 @@ If you are using Amazon EC2 already, you can launch an instance and install Dock
 
 3. Connect to your instance. 
 ```bash
-ssh -l ec2-user -i <local_path_to_your_AWS_keyfile>/<your_AWS_keyfile.pem> <Amazon Instance IP or FQDN> 
+ssh -l ec2-user -i <local_path_to_your_AWS_keyfile>/<your_AWS_keyfile.pem> <Instance IP or FQDN> 
 ```
 
 4. Update the installed packages and package cache on your instance: 
@@ -93,7 +93,7 @@ docker-compose up -d
 
 ### Zeppelin notebook
 
-You can access to Zeppelin at http://<ip/fqdn>:15000
+You can access to Zeppelin at http://<Instance IP or FQDN>:15000
 
 ### Check running container
 
