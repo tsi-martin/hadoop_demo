@@ -10,7 +10,7 @@ ENV HIVE_HOME /usr/local/hive
 ENV SPARK_PROFILE 2.4
 ENV HADOOP_PROFILE 2.7
 ENV SPARK_VERSION 2.3.3
-ENV HIVE_VERSION 2.3.5
+ENV HIVE_VERSION 2.3.6
 ENV HADOOP_VERSION 2.7.7
 
 # Install epel for R
@@ -30,6 +30,7 @@ RUN yum -y install \
     net-tools \
     epel-release \
     python-pip \
+    python-devel \
     python-matplotlib \
     R \
     R-devel \
@@ -51,6 +52,9 @@ RUN yum install -y java-1.8.0-openjdk-devel
 ENV JAVA_HOME /usr/lib/jvm/java
 ENV PATH $PATH:$JAVA_HOME/bin
 
+# upgrade pip
+RUN pip install --upgrade pip
+
 # install spark 
 RUN curl -s http://www.apache.org/dist/spark/spark-$SPARK_VERSION/spark-$SPARK_VERSION-bin-hadoop$HADOOP_PROFILE.tgz | tar -xz -C /usr/local/
 RUN cd /usr/local && ln -s spark-$SPARK_VERSION-bin-hadoop$HADOOP_PROFILE spark
@@ -66,6 +70,9 @@ RUN cd /usr/local && ln -s zeppelin-$ZEPPELIN_VERSION-bin-all zeppelin
 # install hive
 RUN curl -s http://www.apache.org/dist/hive/hive-$HIVE_VERSION/apache-hive-$HIVE_VERSION-bin.tar.gz | tar -xz -C /usr/local/
 RUN cd /usr/local && ln -s hive-$HIVE_VERSION-bin-all hive
+
+# install jupyther
+RUN pip install jupyterlab
 
 # install ssh and run through supervisor
 RUN mkdir /var/run/sshd
@@ -145,6 +152,9 @@ EXPOSE 10020
 
 # Zeppelin
 EXPOSE 15000
+
+# Jupyter
+EXPOSE 8888
 
 # Cleanup of installation files
 #RUN \
